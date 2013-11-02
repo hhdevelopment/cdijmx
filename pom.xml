@@ -2,29 +2,17 @@
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>hhf</groupId>
-	<artifactId>cdi-jmx</artifactId>
+	<groupId>fr.hhdev</groupId>
+	<artifactId>cdijmx</artifactId>
 	<version>1.0.5</version>
 	<packaging>jar</packaging>
 
-	<name>cdi-jmx</name>
+	<name>cdijmx</name>
 
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<distributionManagement>
-		<repository>
-			<id>archiva.internal</id>
-			<name>Internal Release Repository</name>
-			<url>http://192.168.1.5/archiva/repository/internal/</url>
-		</repository>
-		<snapshotRepository>
-			<id>archiva.snapshots</id>
-			<name>Internal Snapshot Repository</name>
-			<url>http://192.168.1.5/archiva/repository/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -56,7 +44,7 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>cdi-logger</artifactId>
+			<artifactId>cdilogger</artifactId>
 			<version>1.0.6</version>
 		</dependency>
 		<dependency>
