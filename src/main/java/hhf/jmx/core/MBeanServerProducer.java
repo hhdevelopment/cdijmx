@@ -14,10 +14,10 @@ import javax.management.MBeanServer;
  * @author François Achache
  */
 public class MBeanServerProducer {
+
 	@Produces
 	@Default
 	public MBeanServer getMBeanServer() {
 		return ManagementFactory.getPlatformMBeanServer();
 	}
-	
 }

@@ -9,5 +9,6 @@ package test.jmx;
  * @author François Achache
  */
 public interface JMXServicesMBean {
+
 	String getValue();
 }

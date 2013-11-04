@@ -17,18 +17,22 @@ import javax.management.StandardMBean;
 
 /**
  *
- * @author François
- * From http://weblogs.java.net/blog/emcmanus/archive/2005/07/adding_informat.html
+ * @author François From http://weblogs.java.net/blog/emcmanus/archive/2005/07/adding_informat.html
  */
 public class AnnotatedStandardMBean extends StandardMBean {
+
 	private static final Map<String, Class<?>> primitiveClasses = new HashMap<String, Class<?>>();
 
-	/** Instance where the MBean interface is implemented by another object. */
+	/**
+	 * Instance where the MBean interface is implemented by another object.
+	 */
 	public <T> AnnotatedStandardMBean(T impl, Class<T> mbeanInterface) throws NotCompliantMBeanException {
 		super(impl, mbeanInterface);
 	}
 
-	/** Instance where the MBean interface is implemented by this object. */
+	/**
+	 * Instance where the MBean interface is implemented by this object.
+	 */
 	protected AnnotatedStandardMBean(Class<?> mbeanInterface) throws NotCompliantMBeanException {
 		super(mbeanInterface);
 	}

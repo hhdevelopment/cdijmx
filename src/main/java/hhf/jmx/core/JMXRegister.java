@@ -26,18 +26,16 @@ import org.slf4j.Logger;
 @Singleton
 @Startup
 public class JMXRegister {
-	
-	@Inject @Any
-	private Instance<JMXManageable> jmxms;
 
+	@Inject
+	@Any
+	private Instance<JMXManageable> jmxms;
 	@Inject
 	@LoggerName("JMX")
 	private Logger logger;
-	
 	@Inject
 	@Default
 	private MBeanServer mbs;
-
 	@Resource(lookup = "java:app/AppName")
 	private String appName;
 
@@ -55,14 +53,14 @@ public class JMXRegister {
 	public void record(JMXManageable jmxm) throws Exception {
 		Object obj = jmxm;
 		Class interfs[] = obj.getClass().getInterfaces();
-		for(Class interf : interfs) {
-			if(interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
-				String mBeanName = appName+":type=" + interf.getSimpleName();
-				logger.info("Registration of "+mBeanName);
+		for (Class interf : interfs) {
+			if (interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
+				String mBeanName = appName + ":type=" + interf.getSimpleName();
+				logger.info("Registration of " + mBeanName);
 				try {
 					ObjectName objectName = new ObjectName(mBeanName);
 					Object annoted = new AnnotatedStandardMBean(obj, interf);
-					if(!mbs.isRegistered(objectName)) {
+					if (!mbs.isRegistered(objectName)) {
 						mbs.registerMBean(annoted, objectName);
 					}
 				} catch (Exception e) {
@@ -86,13 +84,13 @@ public class JMXRegister {
 	public void unregisterFromJMX(JMXManageable jmxm) {
 		Object obj = jmxm;
 		Class interfs[] = obj.getClass().getInterfaces();
-		for(Class interf : interfs) {
-			if(interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
-				String mBeanName = appName+":type=" + interf.getSimpleName();
-				logger.info("Unregistration of "+mBeanName);
+		for (Class interf : interfs) {
+			if (interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
+				String mBeanName = appName + ":type=" + interf.getSimpleName();
+				logger.info("Unregistration of " + mBeanName);
 				try {
 					ObjectName objectName = new ObjectName(mBeanName);
-					if(mbs.isRegistered(objectName)) {
+					if (mbs.isRegistered(objectName)) {
 						mbs.unregisterMBean(objectName);
 					}
 				} catch (Exception e) {

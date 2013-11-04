@@ -18,5 +18,4 @@ public class JMXServices1 implements JMXManageable, JMXServices1MBean {
 	public String getValue() {
 		return "test1";
 	}
-	
 }

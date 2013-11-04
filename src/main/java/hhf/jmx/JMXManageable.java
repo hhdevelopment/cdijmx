@@ -9,5 +9,4 @@ package hhf.jmx;
  * @author François Achache
  */
 public interface JMXManageable {
-	
 }
