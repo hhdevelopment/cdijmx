@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.hhdev.cdijmx.core;
+package fr.hhdev.jmx.core;
 
 import java.lang.management.ManagementFactory;
 import javax.enterprise.inject.Default;

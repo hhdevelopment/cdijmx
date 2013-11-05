@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.cdijmx;
+package test.jmx;
 
-import fr.hhdev.cdijmx.JMXManageable;
+import fr.hhdev.jmx.JMXManageable;
 import java.io.File;
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -111,13 +111,6 @@ public class JMXTest {
 		}
 	}
 
-	private String getAppName() {
-		if(appName==null) {
-			appName = "test";
-		}
-		return appName;
-	}
-	
 	private void showMBeanInfo(ObjectName name) throws InstanceNotFoundException, IntrospectionException, ReflectionException {
 		MBeanInfo mBeanInfo = mbs.getMBeanInfo(name);
 		for (MBeanAttributeInfo att : mBeanInfo.getAttributes()) {
