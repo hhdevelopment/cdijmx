@@ -90,7 +90,7 @@ public class JMXTest {
 	@Test
 	public void testJMXService() {
 		try {
-			ObjectName name = new ObjectName(getAppName() + ":type=" + JMXServicesMBean.class.getSimpleName());
+			ObjectName name = new ObjectName(appName + ":type=" + JMXServicesMBean.class.getSimpleName());
 			String value = jMXServices.getValue();
 			String result = (String) mbs.getAttribute(name, "Value");
 			Assert.assertEquals(value, result);
@@ -102,7 +102,7 @@ public class JMXTest {
 	@Test
 	public void testJMXService1() {
 		try {
-			ObjectName name = new ObjectName(getAppName() + ":type=" + JMXServices1MBean.class.getSimpleName());
+			ObjectName name = new ObjectName(appName + ":type=" + JMXServices1MBean.class.getSimpleName());
 			String value = jMXServices1.getValue();
 			String result = (String) mbs.getAttribute(name, "Value");
 			Assert.assertEquals(value, result);
