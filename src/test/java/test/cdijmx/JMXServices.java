@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.jmx;
+package test.cdijmx;
 
-import hhf.jmx.JMXManageable;
+import fr.hhdev.cdijmx.JMXManageable;
 import javax.ejb.Singleton;
 
 /**

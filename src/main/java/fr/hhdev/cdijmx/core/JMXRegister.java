@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hhf.jmx.core;
+package fr.hhdev.cdijmx.core;
 
-import hhf.jmx.JMXManageable;
+import fr.hhdev.cdijmx.JMXManageable;
 import hhf.logger.LoggerName;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

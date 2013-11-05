@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hhf.jmx.annotations;
+package fr.hhdev.cdijmx.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -9,7 +9,7 @@
 	<groupId>fr.hhdev</groupId>
 	<artifactId>cdijmx</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>ejb</packaging>
 	<name>cdijmx</name>
 
 	<dependencies>

@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hhf.jmx.core;
+package fr.hhdev.cdijmx.core;
 
-import hhf.jmx.annotations.JMXArgument;
-import hhf.jmx.annotations.JMXDescription;
+import fr.hhdev.cdijmx.annotations.JMXArgument;
+import fr.hhdev.cdijmx.annotations.JMXDescription;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
