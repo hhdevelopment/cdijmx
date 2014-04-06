@@ -27,6 +27,7 @@ import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
 
 /**
  *
@@ -41,6 +42,8 @@ public class JMXTest {
 	private String modName;
 	@Inject
 	private MBeanServer mbs;
+	@Inject
+	private Logger logger;
 	@Inject
 	private JMXServicesMBean jMXServices;
 	@Inject
@@ -111,13 +114,17 @@ public class JMXTest {
 		}
 	}
 
+	@Test
+	public void testDestroy() {
+	}
+
 	private void showMBeanInfo(ObjectName name) throws InstanceNotFoundException, IntrospectionException, ReflectionException {
 		MBeanInfo mBeanInfo = mbs.getMBeanInfo(name);
 		for (MBeanAttributeInfo att : mBeanInfo.getAttributes()) {
-			System.out.println(" = Attribute : " + att.getName());
+			logger.info(" = Attribute : {}:{}", att.getType(), att.getName());
 		}
 		for (MBeanOperationInfo op : mBeanInfo.getOperations()) {
-			System.out.println(" = Operation : " + op.getName());
+			logger.info(" = Operation : {}", op.getName());
 		}
 	}
 }
