@@ -61,7 +61,7 @@ public class JMXRegister {
 	protected void record(JMXManageable jmxm) {
 		Class interfs[] = jmxm.getClass().getInterfaces();
 		for (Class interf : interfs) {
-			if (interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
+			if (isMXBean(interf)) {
 				recordInterface(jmxm, interf);
 			}
 		}
@@ -89,7 +89,7 @@ public class JMXRegister {
 	protected void unrecord(JMXManageable jmxm) {
 		Class interfs[] = jmxm.getClass().getInterfaces();
 		for (Class interf : interfs) {
-			if (interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean")) {
+			if (isMXBean(interf)) {
 				unrecordInterface(interf);
 			}
 		}
@@ -110,5 +110,14 @@ public class JMXRegister {
 		} catch (MalformedObjectNameException e) {
 			logger.error("Problem during unregistration of MBean : " + mBeanName, e);
 		}
+	}
+	
+	/**
+	 * Verifie que l'interface finit bien par MBean ou MXBean
+	 * @param interf
+	 * @return 
+	 */
+	private boolean isMXBean(Class interf) {
+		return interf.getSimpleName().endsWith("MBean") || interf.getSimpleName().endsWith("MXBean");
 	}
 }
