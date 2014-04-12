@@ -6,6 +6,7 @@ package fr.hhdev.jmx.core;
 
 import fr.hhdev.jmx.JMXManageable;
 import fr.hhdev.logger.LoggerName;
+import java.lang.management.ManagementFactory;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
@@ -38,9 +39,8 @@ public class JMXRegister {
 	@Inject
 	@LoggerName("JMX")
 	private Logger logger;
-	@Inject
-	@Default
-	private MBeanServer mbs;
+
+	private final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 	@Resource(lookup = "java:app/AppName")
 	private String appName;
 
