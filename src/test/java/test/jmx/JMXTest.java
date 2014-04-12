@@ -6,6 +6,7 @@ package test.jmx;
 
 import fr.hhdev.jmx.JMXManageable;
 import java.io.File;
+import java.lang.management.ManagementFactory;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.management.InstanceNotFoundException;
@@ -40,8 +41,7 @@ public class JMXTest {
 	private String appName;
 	@Resource(lookup = "java:module/ModuleName")
 	private String modName;
-	@Inject
-	private MBeanServer mbs;
+	private final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 	@Inject
 	private Logger logger;
 	@Inject
